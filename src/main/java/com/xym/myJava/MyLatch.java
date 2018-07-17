@@ -25,7 +25,7 @@ public class MyLatch {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        MyLatch myLatch = new MyLatch(100);
+      /*  MyLatch myLatch = new MyLatch(100);
         Worker[] workers = new Worker[100];
         for (int i = 0; i < 100; i++) {
             workers[i] = new Worker(myLatch);
@@ -33,10 +33,16 @@ public class MyLatch {
         }
 
         myLatch.await();
-        System.out.println("collect worker results");
+        System.out.println("collect worker results");*/
+        try {
+            Class<?> aClass = Class.forName("com.xym.myJava.classloader.TestMain");
+            System.out.println(aClass.getClassLoader());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    static class Worker extends Thread {
+    /*static class Worker extends Thread {
         MyLatch myLatch;
 
         public Worker(MyLatch myLatch) {
@@ -53,5 +59,5 @@ public class MyLatch {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }
