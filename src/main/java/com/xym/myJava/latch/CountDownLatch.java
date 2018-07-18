@@ -1,5 +1,7 @@
 package com.xym.myJava.latch;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 描述类作用
  *
@@ -8,8 +10,14 @@ package com.xym.myJava.latch;
  */
 public class CountDownLatch extends Latch {
 
-    public CountDownLatch(int limit) {
+    /**
+     * 任务都执行完毕后的回调
+     */
+    private Runnable runnable;
+
+    public CountDownLatch(int limit, Runnable runnable) {
         super(limit);
+        this.runnable = runnable;
     }
 
     @Override
@@ -17,6 +25,36 @@ public class CountDownLatch extends Latch {
         synchronized (this) {
             while (limit > 0) {
                 this.wait();
+            }
+
+            if (runnable != null) {
+                runnable.run();
+            }
+        }
+    }
+
+    @Override
+    public void await(TimeUnit unit, long time) throws InterruptedException, WaitTimeoutException {
+        if (time <= 0) {
+            throw new IllegalArgumentException("the time is invalid");
+        }
+
+        //将time转为nano
+        long nanos = unit.toNanos(time);
+        final long endNanos = (System.nanoTime() + nanos);
+        synchronized (this) {
+            while (limit > 0) {
+                if (TimeUnit.NANOSECONDS.toMillis(nanos) <= 0) {
+                    throw new WaitTimeoutException("the wait time over specify time");
+                }
+
+                //等待过程中有可能会被中断,需要重新计算nanos
+                this.wait(TimeUnit.NANOSECONDS.toMillis(nanos));
+                nanos = (endNanos - System.nanoTime());
+            }
+
+            if (runnable != null) {
+                runnable.run();
             }
         }
     }

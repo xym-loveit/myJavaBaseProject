@@ -1,5 +1,7 @@
 package com.xym.myJava.latch;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 描述类作用
  *
@@ -22,6 +24,13 @@ public abstract class Latch {
      * 被阻塞的线程是允许被中断的
      */
     public abstract void await() throws InterruptedException;
+
+    /**
+     * 具备超时功能的等待
+     *
+     * @throws InterruptedException
+     */
+    public abstract void await(TimeUnit unit, long time) throws InterruptedException, WaitTimeoutException;
 
     /**
      * 当任务线程完成工作之后会调用该方法使得计数器减一
