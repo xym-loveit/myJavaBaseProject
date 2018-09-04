@@ -14,7 +14,7 @@ public class Test02 {
             System.out.println(s);
         }
         /*try {
-            Class<?> aClass = Class.forName("com.xym.myJava.classloader.TestMain");
+            Class<?> aClass = Class.forName("com.xym.myJava.classloader.QuartzScheduleMain");
             System.out.println(aClass.getClassLoader());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

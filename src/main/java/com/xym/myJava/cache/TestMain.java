@@ -4,6 +4,7 @@ package com.xym.myJava.cache;
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
+import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,6 +22,8 @@ public class TestMain {
         //test05();
         //test06();
 
+        BigDecimal bigDecimal = new BigDecimal("33");
+        System.out.println(bigDecimal.divide(BigDecimal.valueOf(100), 2, BigDecimal.ROUND_HALF_UP).doubleValue());
 
     }
 
