@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
+ * 配合服务网关，做测试使用而已
+ *
  * @author xym
  */
 @SpringBootApplication
