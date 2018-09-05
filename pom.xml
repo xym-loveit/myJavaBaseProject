@@ -11,6 +11,7 @@
     <modules>
         <module>battercake-provider</module>
         <module>battercake-consumer</module>
+        <module>eatuul</module>
     </modules>
 
     <name>myJavaBaseProject</name>
