@@ -1,5 +1,7 @@
 package com.xym.myJava.lambda;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 接口除了有抽象方法还可以有default默认方法
  *
@@ -7,6 +9,7 @@ package com.xym.myJava.lambda;
  * @create 2018-09-13 15:28
  */
 public interface Formula {
+
 
     /**
      * 接口声明方法
@@ -45,8 +48,17 @@ public interface Formula {
         System.out.println(formula.calculate(100));
         System.out.println(formula.sqrt(16));
 
-        Formula formula2 = (a) -> Double.valueOf(a+4);
-        System.out.println(formula2.calculate(3));
+        Formula formula1 = (a) -> Double.valueOf(a + 4);
+        System.out.println(formula1.calculate(3));
+
+        new Thread(() -> {
+            System.out.println("!!!");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
