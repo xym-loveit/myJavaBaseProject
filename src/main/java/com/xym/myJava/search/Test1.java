@@ -10,6 +10,7 @@ public class Test1 {
     public static void main(String[] args) {
         int[] ints = {14, 5, 18, 2, 8, 1, 16};
         Arrays.sort(ints);
+        System.out.println(4 >>>16);
         int i = Arrays.binarySearch(ints, 4);
 
         System.out.println(Arrays.toString(ints));
