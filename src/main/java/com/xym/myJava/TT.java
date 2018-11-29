@@ -1,5 +1,7 @@
 package com.xym.myJava;
 
+import java.nio.channels.SelectionKey;
+
 public class TT {
 
     static {
@@ -23,7 +25,11 @@ public class TT {
     }
 
     public static void main(String[] args) {
-        System.out.println(TT.class);
+        System.out.println(SelectionKey.OP_CONNECT);
+        System.out.println(SelectionKey.OP_ACCEPT);
+        System.out.println(SelectionKey.OP_READ);
+        System.out.println(SelectionKey.OP_WRITE);
+        //System.out.println(TT.class);
         /*Calendar cal = Calendar.getInstance();
         cal.set(11, 0);
         cal.set(13, 0);
