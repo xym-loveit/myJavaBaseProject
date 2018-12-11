@@ -9,6 +9,8 @@ import java.util.Set;
 
 /**
  * ParameterizedType表示参数化类型，也就是泛型，例如List<T>、Set<T>等
+ * <p>
+ * 在ParameterizedType接口中，有3个方法，分别是getActualTypeArguments()、 getRawType()、 getOwnerType()
  *
  * @author xym
  * @create 2018-12-10 17:53
