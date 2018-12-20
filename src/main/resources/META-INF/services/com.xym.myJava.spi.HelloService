@@ -1,0 +1,3 @@
+#2个spi接口实现
+com.xym.myJava.spi.impl.HelloService1Impl
+com.xym.myJava.spi.impl.HelloService2Impl
