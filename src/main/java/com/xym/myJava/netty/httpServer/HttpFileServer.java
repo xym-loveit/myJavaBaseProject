@@ -12,6 +12,11 @@ import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
+/**
+ * 使用netty模拟Http文件服务器
+ *
+ * @author xym
+ */
 public class HttpFileServer {
 
     private static final String DEFAULT_URL = "/src/";

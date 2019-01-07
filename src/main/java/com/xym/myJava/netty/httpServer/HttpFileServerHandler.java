@@ -114,7 +114,8 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
                 if (total < 0) { // total unknown
                     System.err.println("Transfer progress: " + progress);
                 } else {
-                    System.err.println("Transfer progress: " + progress + " / " + total);
+                    String percent = String.format("%.2f", (progress / Double.valueOf(total)) * 100.00);
+                    System.err.println("Transfer progress: " + progress + " / " + total + ",percent=" + percent);
                 }
             }
 
@@ -224,7 +225,11 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             ret.append(name);
             ret.append("\">");
             ret.append(name);
-            ret.append("</a></li>\r\n");
+            ret.append("</a>");
+            if (f.isFile()) {
+                ret.append("\t").append(String.format("%.2f", f.length() / 1024.0)).append(" k");
+            }
+            ret.append("</li>\r\n");
         }
         ret.append("</ul></body></html>\r\n");
         //构造结构，写入缓冲区
