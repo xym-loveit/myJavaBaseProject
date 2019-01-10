@@ -125,7 +125,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             }
         });
 
-        //如果使用Chunked编码，最后则需要发送一个编码结束的看空消息体，进行标记，表示所有消息体已经成功发送完成。
+        //如果使用Chunked编码，最后则需要发送一个编码结束的空消息体，进行标记，表示所有消息体已经成功发送完成。
         ChannelFuture lastContentFuture = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
         //如果当前连接请求非Keep-Alive ，最后一包消息发送完成后 服务器主动关闭连接
         if (!HttpHeaderUtil.isKeepAlive(request)) {

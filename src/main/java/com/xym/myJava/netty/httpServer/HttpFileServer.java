@@ -13,7 +13,7 @@ import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
- * 使用netty模拟Http文件服务器
+ * 使用netty模拟Http文件服务器，实现文件夹的浏览和文件的下载传输
  *
  * @author xym
  */

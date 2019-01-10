@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    Netty WebSocket 时间服务器
+</head>
+<body>
+<br>
+<script type="text/javascript">
+    var socket;
+    if (!window.WebSocket) {
+        window.WebSocket = window.MozWebSocket;
+    }
+    if (window.WebSocket) {
+        socket = new WebSocket("ws://localhost:8080/websocket");
+        socket.onmessage = function (ev) {
+            var ta = document.getElementById("respText");
+            ta.value = "";
+            ta.value = ev.data;
+        };
+        socket.onopen = function (ev) {
+            var ta = document.getElementById("respText");
+            ta.value = "打开WebSocket服务正常，浏览器支持WebSocket!";
+        };
+        socket.onclose = function (ev) {
+            var ta = document.getElementById("respText");
+            ta.value = "";
+            ta.value = "WebSocket 关闭";
+        };
+    } else {
+        alert("抱歉，你的浏览器不支持WebSocket协议！");
+    }
+
+    function send(message) {
+        if (!window.WebSocket) {
+            return;
+        }
+        if (socket.readyState == WebSocket.OPEN) {
+            socket.send(message);
+        } else {
+            alert("WebSocket 连接没有建立成功！");
+        }
+    }
+
+    var i = 0;
+
+    function changeSS() {
+        console.log(window.WebSocket);
+        if ((++i) % 2 == 0) {
+            i = 0;
+            console.log('connecting...')
+            connect();
+        } else {
+            close001();
+        }
+    }
+
+    function connect() {
+        if (!window.WebSocket) {
+            return;
+        }
+        socket = new WebSocket("ws://localhost:8080/websocket");
+    }
+
+    function close001() {
+        // console.log(socket.readyState);
+        if (!window.WebSocket) {
+            return;
+        }
+        // console.log(socket.readyState);
+        if (socket.readyState == WebSocket.OPEN) {
+            socket.close(3555, "test close")
+        } else {
+            alert("WebSocket 连接没有建立成功！");
+        }
+    }
+</script>
+
+<form onsubmit="return false;">
+    <input type="text" name="message" value="Netty 最佳实践"/>
+    <br><br>
+    <input type="button" value="发送WebSocket请求消息" onclick="send(this.form.message.value)"/>
+    <input type="button" value="WebSocket Close" onclick="changeSS()"/>
+    <hr color="blue"/>
+    <h3>服务端返回的应答消息</h3>
+    <textarea id="respText" style="width:500px;height: 300px;"></textarea>
+</form>
+</body>
+</html>
