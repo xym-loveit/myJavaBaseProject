@@ -16,6 +16,7 @@ public class LoginAuthReqHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("send msg to server ---");
         ctx.writeAndFlush(buildLoginReq());
     }
 

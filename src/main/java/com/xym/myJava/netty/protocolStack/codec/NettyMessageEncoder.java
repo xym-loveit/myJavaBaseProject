@@ -2,12 +2,10 @@ package com.xym.myJava.netty.protocolStack.codec;
 
 import com.xym.myJava.netty.protocolStack.struct.NettyMessage;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToMessageEncoder;
+import io.netty.handler.codec.MessageToByteEncoder;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Map;
  * @author xym
  * @create 2019-01-10 15:00
  */
-public final class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
+public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage> {
 
     MarshallingEncoder marshallingEncoder;
 
@@ -25,11 +23,10 @@ public final class NettyMessageEncoder extends MessageToMessageEncoder<NettyMess
     }
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, NettyMessage msg, List<Object> out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, NettyMessage msg, ByteBuf sendBuf) throws Exception {
         if (msg == null || msg.getHeader() == null) {
             throw new Exception("the encode message is null");
         }
-        ByteBuf sendBuf = Unpooled.buffer();
         //---写入crcCode---
         sendBuf.writeInt(msg.getHeader().getCrcCode());
         //---写入length---
