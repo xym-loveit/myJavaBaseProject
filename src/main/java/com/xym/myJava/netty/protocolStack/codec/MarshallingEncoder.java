@@ -12,6 +12,7 @@ import java.io.IOException;
  * @create 2019-01-10 15:12
  */
 public class MarshallingEncoder {
+    //长度占位符
     private static final byte[] LENGTH_PLACEHOLDER = new byte[4];
     Marshaller marshaller;
 

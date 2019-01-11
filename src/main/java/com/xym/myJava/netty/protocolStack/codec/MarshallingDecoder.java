@@ -31,6 +31,7 @@ public class MarshallingDecoder {
         try {
             //1. 读取第一个4bytes，里面放置的是object对象的byte长度
             int objSize = in.readInt();
+            //跳过消息长度
             ByteBuf buf = in.slice(in.readerIndex(), objSize);
             //2 . 使用bytebuf的代理类
             ByteInput input = new ChannelBufferByteInput(buf);
