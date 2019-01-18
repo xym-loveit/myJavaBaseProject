@@ -26,7 +26,9 @@ public class NettyServer {
         ServerBootstrap b = new ServerBootstrap();
         b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 100)
+                //父类AbstractBootstrap中的handler是个工厂类，它为每个新接入的客户端都创建一个新的Handler
                 .handler(new LoggingHandler(LogLevel.INFO))
+                //ServerBootstrap中的handler是NioServerSocketChannel使用，所有连接该监听端口的客户端都会执行它
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch)
