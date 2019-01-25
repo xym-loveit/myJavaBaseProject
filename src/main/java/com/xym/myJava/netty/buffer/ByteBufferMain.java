@@ -1,5 +1,8 @@
 package com.xym.myJava.netty.buffer;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+
 import java.nio.ByteBuffer;
 
 /**
@@ -11,6 +14,13 @@ import java.nio.ByteBuffer;
 public class ByteBufferMain {
     public static void main(String[] args) {
         ByteBuffer buffer = ByteBuffer.wrap("12345".getBytes());
-
+        System.out.println(buffer);
+        ByteBuf buffer1 = Unpooled.buffer();
+        System.out.println(buffer1);
+        buffer1.writeBytes("abcdef".getBytes());
+        for (int i = 0; i < buffer1.capacity(); i++) {
+            System.out.print((char)buffer1.getByte(i));
+        }
+        System.out.println(buffer1);
     }
 }
