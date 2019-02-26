@@ -30,10 +30,10 @@ public class MyLockMain {
 
     public static void main(String[] args) {
        /* MyLock myLock = new MyLock();
-        Thread[] threads = new Thread[10];
+        Thread[] threadlocals = new Thread[10];
         for (int i = 0; i < 10; i++) {
-            threads[i] = new Thread(new MyThread(myLock), "th " + i);
-            threads[i].start();
+            threadlocals[i] = new Thread(new MyThread(myLock), "th " + i);
+            threadlocals[i].start();
         }*/
         System.out.println(MAX_COUNT);
     }
