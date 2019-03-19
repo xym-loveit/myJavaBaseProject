@@ -28,7 +28,8 @@ public class RSADemo {
         try {
             String publicKey = getPublicKey(keyMap);
             String privateKey = getPrivateKey(keyMap);
-
+            System.out.println(publicKey);
+            System.out.println(privateKey);
             System.out.println(keyMap);
             System.out.println("-----------------------------------");
             System.out.println(publicKey.length());

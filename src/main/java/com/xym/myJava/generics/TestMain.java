@@ -6,47 +6,8 @@ package com.xym.myJava.generics;
  */
 public class TestMain {
     public static void main(String[] args) {
-        Point<String> point = new Point<>();
-        point.setVar("hi");
-        System.out.println(point.getVar().length());
-
-        Notepad<String, Integer> t = null;  // 定义两个泛型类型的对象
-        t = new Notepad<String, Integer>();  // 里面的key为String，value为Integer
-        t.setKey("汤姆");  // 设置第一个内容
-        t.setValue(20);   // 设置第二个内容
-        System.out.print("姓名；" + t.getKey());  // 取得信息
-        System.out.print("，年龄；" + t.getValue());  // 取得信息
-
-
-        Info<String> info = new Info<>();
-        info.setVar("it");
-
-        fun(info);
-
-        Info<Integer> num1 = new Info<>();
-        num1.setVar(100);
-
-        Info<Float> num2 = new Info<>();
-        num2.setVar(100.1F);
-
-        fun01(num1);
-        fun01(num2);
-
-        Info<String> str01 = new Info<>();
-        str01.setVar("hello");
-
-        Info<Object> str02 = new Info<>();
-        str02.setVar(new Object());
-
-        fun02(str01);
-        fun02(str02);
-
-        //泛型无法向上转型
-        Info<String> i1 = new Info<String>();  // 泛型类型为String
-        Info<Object> i2 = null;
-        //i2 = i1;        //这句会出错 incompatible types
-
-
+        String str = "{\"access_token\":\"p1tUQod-DHZn23IGmyVXhpHCZSuntkTg0JEiIEKX5S62DG8eYFYaAjcfYUeGDThq-KRkU_41u1TYBAcVT6pLKJGL7DqQ3PKw6ID4n-GajEINDhTl9xdarv_6SH1Y8FWlp5MwCdZ4KQQCYK0GX9Y1mC9IU3EaVg4zu0muUr1JElVHvM6tqkONr5KzpOpCvll0ShgJHdQmYipWyy67Mpuzzg88YR0YyOes_GQRJC2LyhCzWyg46PUZlAll_o8wJoZnNir1lPG_nDP_dix_HE7PogU_f-_0J_YS16EeQQcwl0fxLFpCdCiUbe1pR4tDSghmeX1WB0BnYk9W_uKDmRg9h_0xnvHcig4KHdY40ulrrT-JNyIIVh0FAvMwH9D0Pbno1Qa5n3uQPVPc_WioD_-HgSQxmGKe55CkfJee5UmWKt9kgWUMcGdeylDP_2dAbShl21PZA5-ZqgTlhKq9fdD3Has_NaC_X_KiuxR9Jdi1yIpVPslvOp1q5Nsl-YoEtQe-KxvxhI48FDbNhnvqUvQfuA0ycm1DszGlge5N1OEg_crn4KNSItpwYAwMSoYOopvp\",\"token_type\":\"bearer\",\"expires_in\":1209599,\"refresh_token\":\"Tt0CAuQ/C0iJCV1N84nCXw==\"}\n";
+        System.out.println(str.length());
     }
 
     public static void fun(Info<?> temp) {  // 可以接收任意的泛型对象

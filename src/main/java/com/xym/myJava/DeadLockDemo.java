@@ -46,7 +46,9 @@ public class DeadLockDemo {
     }
 
     public static void main(String[] args) {
-        startThreadA();
-        startThreadB();
+        //startThreadA();
+        //startThreadB();
+        boolean b = (31 * 4) - ((4 << 5) - 4) == 0;
+        System.out.println(b);
     }
 }
