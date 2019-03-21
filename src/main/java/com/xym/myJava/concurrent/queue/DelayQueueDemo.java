@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class DelayQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         DelayQueue<Delay> delays = new DelayQueue<>();
-
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
             Delay delay = new Delay(random.nextInt(1200), "task--" + i);
@@ -25,6 +24,7 @@ public class DelayQueueDemo {
             if (delays.size() == 0) {
                 System.out.println("---");
                 break;
+                //一旦没有元素，则task会阻塞
             } else if ((delay = delays.take()) != null) {
                 System.out.println(delay);
             }

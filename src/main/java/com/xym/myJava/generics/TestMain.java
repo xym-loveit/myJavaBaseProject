@@ -1,6 +1,10 @@
 package com.xym.myJava.generics;
 
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 /**
  * 普通泛型
  */
@@ -8,6 +12,9 @@ public class TestMain {
     public static void main(String[] args) {
         String str = "{\"access_token\":\"p1tUQod-DHZn23IGmyVXhpHCZSuntkTg0JEiIEKX5S62DG8eYFYaAjcfYUeGDThq-KRkU_41u1TYBAcVT6pLKJGL7DqQ3PKw6ID4n-GajEINDhTl9xdarv_6SH1Y8FWlp5MwCdZ4KQQCYK0GX9Y1mC9IU3EaVg4zu0muUr1JElVHvM6tqkONr5KzpOpCvll0ShgJHdQmYipWyy67Mpuzzg88YR0YyOes_GQRJC2LyhCzWyg46PUZlAll_o8wJoZnNir1lPG_nDP_dix_HE7PogU_f-_0J_YS16EeQQcwl0fxLFpCdCiUbe1pR4tDSghmeX1WB0BnYk9W_uKDmRg9h_0xnvHcig4KHdY40ulrrT-JNyIIVh0FAvMwH9D0Pbno1Qa5n3uQPVPc_WioD_-HgSQxmGKe55CkfJee5UmWKt9kgWUMcGdeylDP_2dAbShl21PZA5-ZqgTlhKq9fdD3Has_NaC_X_KiuxR9Jdi1yIpVPslvOp1q5Nsl-YoEtQe-KxvxhI48FDbNhnvqUvQfuA0ycm1DszGlge5N1OEg_crn4KNSItpwYAwMSoYOopvp\",\"token_type\":\"bearer\",\"expires_in\":1209599,\"refresh_token\":\"Tt0CAuQ/C0iJCV1N84nCXw==\"}\n";
         System.out.println(str.length());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(LocalDateTime.now(ZoneId.systemDefault()));
+        System.out.println(formatter.format(LocalDateTime.now(ZoneId.systemDefault())));
     }
 
     public static void fun(Info<?> temp) {  // 可以接收任意的泛型对象
