@@ -12,6 +12,7 @@
         <module>battercake-provider</module>
         <module>battercake-consumer</module>
         <module>eatuul</module>
+        <module>jvmBase</module>
     </modules>
 
     <name>myJavaBaseProject</name>
@@ -151,6 +152,11 @@
             <version>2.0.6.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.10</version>
+        </dependency>
 
     </dependencies>
 
