@@ -10,7 +10,7 @@ import io.netty.handler.timeout.IdleStateEvent;
  * 2、如果超时2次则说明连接处于不活跃状态，关闭ServerChannel
  *
  * @author xym
- * @create 2019-01-28 14:43
+ * @create 2019-_01-28 14:43
  */
 public class HeartBeatServerHandler extends ChannelHandlerAdapter {
 

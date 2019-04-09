@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-18 10:12
+ * @create 2019-_01-18 10:12
  */
 //标记该类的实例可以被
 //多个 Channel 共享

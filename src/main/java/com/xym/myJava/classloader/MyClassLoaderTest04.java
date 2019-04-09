@@ -4,7 +4,7 @@ package com.xym.myJava.classloader;
  * 将当前类加载器的父类加载器置空，使其无法加载，被迫最后由当前类加载器加载
  *
  * @author xym
- * @create 2018-07-17 17:01
+ * @create 2018-07-17 17:_01
  */
 public class MyClassLoaderTest04 {
     public static void main(String[] args) throws ClassNotFoundException {

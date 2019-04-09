@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-04 11:25
+ * @create 2019-_01-04 11:25
  */
 public class SubscribeResp implements Serializable {
     private static final long serialVersionUID = 1L;

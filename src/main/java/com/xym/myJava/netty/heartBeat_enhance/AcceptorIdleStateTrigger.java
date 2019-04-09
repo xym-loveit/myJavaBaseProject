@@ -10,7 +10,7 @@ import io.netty.handler.timeout.IdleStateEvent;
  * 读事件超时触发器
  *
  * @author xym
- * @create 2019-01-28 16:39
+ * @create 2019-_01-28 16:39
  */
 @ChannelHandler.Sharable
 public class AcceptorIdleStateTrigger extends ChannelHandlerAdapter {

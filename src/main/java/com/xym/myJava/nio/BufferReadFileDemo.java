@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
  * 描述类作用
  *
  * @author xym
- * @create 2018-11-16 16:01
+ * @create 2018-11-16 16:_01
  */
 public class BufferReadFileDemo {
     public static void main(String[] args) throws Exception {

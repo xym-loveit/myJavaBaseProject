@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
  * jdk动态代理示例
  *
  * @author xym
- * @create 2018-09-03 16:01
+ * @create 2018-09-03 16:_01
  */
 public class TestMain {
     public static void main(String[] args) {

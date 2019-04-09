@@ -9,7 +9,7 @@ import java.io.IOException;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-10 15:12
+ * @create 2019-_01-10 15:12
  */
 public class MarshallingEncoder {
     //长度占位符

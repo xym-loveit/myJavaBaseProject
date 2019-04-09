@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 握手和安全认证
  *
  * @author xym
- * @create 2019-01-10 16:05
+ * @create 2019-_01-10 16:05
  */
 public class LoginAuthRespHandler extends ChannelHandlerAdapter {
 

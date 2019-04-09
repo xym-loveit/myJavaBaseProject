@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * 断线检测狗，当发现当前的链路不稳定关闭后，进行12次重连
  *
  * @author xym
- * @create 2019-01-28 16:44
+ * @create 2019-_01-28 16:44
  */
 @ChannelHandler.Sharable
 public abstract class ConnectionWatchdog extends ChannelHandlerAdapter implements TimerTask, ChannelHandlerHolder {

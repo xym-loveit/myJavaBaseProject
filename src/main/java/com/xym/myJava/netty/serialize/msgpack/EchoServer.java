@@ -14,7 +14,7 @@ import io.netty.handler.logging.LoggingHandler;
  * 采用自定义分隔符DelimiterBasedFrameDecoder处理粘包和拆包问题
  *
  * @author xym
- * @create 2019-01-02 15:33
+ * @create 2019-_01-02 15:33
  */
 public class EchoServer {
     public static void main(String[] args) {

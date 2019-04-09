@@ -4,7 +4,7 @@ package com.xym.myJava.netty.protocol2;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-25 17:46
+ * @create 2019-_01-25 17:46
  */
 public class CustomMsg {
     //类型  系统编号 0xAB 表示A系统，0xBC 表示B系统

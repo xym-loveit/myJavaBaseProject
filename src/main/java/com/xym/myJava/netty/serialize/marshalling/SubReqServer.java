@@ -19,7 +19,7 @@ import org.jboss.marshalling.MarshallingConfiguration;
  * 采用jboss marshalling版本开发图书订购服务端
  *
  * @author xym
- * @create 2019-01-04 10:09
+ * @create 2019-_01-04 10:09
  */
 public class SubReqServer {
 

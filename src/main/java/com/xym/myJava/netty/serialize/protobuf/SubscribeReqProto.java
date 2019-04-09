@@ -1073,7 +1073,7 @@ public final class SubscribeReqProto {
   static {
     String[] descriptorData = {
       "\n\022SubscribeReq.proto\022\005netty\"X\n\014Subscribe" +
-      "Req\022\020\n\010subReqID\030\001 \002(\005\022\020\n\010userName\030\002 \002(\t\022" +
+      "Req\022\020\n\010subReqID\030\0_01 \002(\005\022\020\n\010userName\030\002 \002(\t\022" +
       "\023\n\013productName\030\003 \002(\t\022\017\n\007address\030\004 \003(\tB<\n" +
       "\'com.xym.myJava.netty.serialize.protobuf" +
       "B\021SubscribeReqProto"

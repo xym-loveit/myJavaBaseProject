@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-25 17:57
+ * @create 2019-_01-25 17:57
  */
 public class CustomEncoder extends MessageToByteEncoder<CustomMsg> {
     @Override

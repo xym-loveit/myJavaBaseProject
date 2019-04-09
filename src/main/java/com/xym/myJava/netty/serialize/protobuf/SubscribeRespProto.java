@@ -885,7 +885,7 @@ public final class SubscribeRespProto {
   static {
     String[] descriptorData = {
       "\n\023SubscribeResp.proto\022\005netty\"A\n\rSubscrib" +
-      "eResp\022\020\n\010subReqID\030\001 \002(\005\022\020\n\010respCode\030\002 \002(" +
+      "eResp\022\020\n\010subReqID\030\0_01 \002(\005\022\020\n\010respCode\030\002 \002(" +
       "\t\022\014\n\004desc\030\003 \002(\tB=\n\'com.xym.myJava.netty." +
       "serialize.protobufB\022SubscribeRespProto"
     };

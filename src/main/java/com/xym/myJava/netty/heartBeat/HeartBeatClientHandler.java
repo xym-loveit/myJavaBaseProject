@@ -21,7 +21,7 @@ import java.util.Date;
  * 4、注意：服务端的读事件设定的时间为5秒，客户端的写事件超时时间为4秒（设置的要比服务端超时时间【短】）
  *
  * @author xym
- * @create 2019-01-28 15:16
+ * @create 2019-_01-28 15:16
  */
 public class HeartBeatClientHandler extends ChannelHandlerAdapter {
 

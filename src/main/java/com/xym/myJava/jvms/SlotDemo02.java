@@ -4,7 +4,7 @@ package com.xym.myJava.jvms;
  * 在同一个作用域内进行，不会进行gc
  *
  * @author xym
- * @create 2019-04-01 15:53
+ * @create 2019-04-_01 15:53
  */
 public class SlotDemo02 {
     public static void main(String[] args) {

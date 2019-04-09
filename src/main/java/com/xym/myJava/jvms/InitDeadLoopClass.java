@@ -6,7 +6,7 @@ package com.xym.myJava.jvms;
  * 阻塞等待，直到活动线程执行<clinit>()方法完毕
  *
  * @author xym
- * @create 2019-04-01 11:22
+ * @create 2019-04-_01 11:22
  */
 public class InitDeadLoopClass {
 

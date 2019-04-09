@@ -8,7 +8,7 @@ package com.xym.myJava.thread;
  * join会释放锁，释放的是调用join方法的当前线程占用的锁
  *
  * @author xym
- * @create 2019-02-22 18:01
+ * @create 2019-02-22 18:_01
  */
 public class ThreadJoinAndSleepDemo {
 

@@ -17,7 +17,7 @@ import java.util.List;
  * -XX:MetaspaceSize=8m -XX:MaxMetaspaceSize=8m
  *
  * @author xym
- * @create 2018-11-30 15:01
+ * @create 2018-11-30 15:_01
  */
 public class StringOomMock {
     static String base = "string";

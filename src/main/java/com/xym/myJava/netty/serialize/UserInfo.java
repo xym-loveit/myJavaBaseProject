@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-03 10:26
+ * @create 2019-_01-03 10:26
  */
 @Message
 public class UserInfo implements Serializable {

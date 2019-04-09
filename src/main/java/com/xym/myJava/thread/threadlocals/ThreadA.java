@@ -4,7 +4,7 @@ package com.xym.myJava.thread.threadlocals;
  * 描述类作用
  *
  * @author xym
- * @create 2019-02-25 11:01
+ * @create 2019-02-25 11:_01
  */
 public class ThreadA extends Thread {
     @Override

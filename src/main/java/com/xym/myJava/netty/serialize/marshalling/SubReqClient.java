@@ -12,7 +12,7 @@ import io.netty.util.internal.logging.Slf4JLoggerFactory;
  * 采用jboss marshalling版本开发图书订购客户端
  *
  * @author xym
- * @create 2019-01-04 11:16
+ * @create 2019-_01-04 11:16
  */
 public class SubReqClient {
     public static void main(String[] args) {

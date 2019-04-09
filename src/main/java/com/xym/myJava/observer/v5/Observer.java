@@ -4,7 +4,7 @@ package com.xym.myJava.observer.v5;
  * 观察者接口
  *
  * @author xym
- * @create 2018-09-11 15:01
+ * @create 2018-09-11 15:_01
  */
 public interface Observer {
     /**

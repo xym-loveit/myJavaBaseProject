@@ -13,7 +13,7 @@ import io.netty.util.CharsetUtil;
  * 写事件超时处理器
  *
  * @author xym
- * @create 2019-01-28 17:02
+ * @create 2019-_01-28 17:02
  */
 @ChannelHandler.Sharable
 public class ConnectorIdleStateTrigger extends ChannelHandlerAdapter {

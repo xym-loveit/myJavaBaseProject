@@ -14,7 +14,7 @@ import io.netty.handler.codec.string.StringDecoder;
  * 描述类作用
  *
  * @author xym
- * @create 2019-01-02 15:52
+ * @create 2019-_01-02 15:52
  */
 public class EchoClient {
     public static void main(String[] args) {

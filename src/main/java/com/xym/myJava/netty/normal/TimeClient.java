@@ -12,7 +12,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  * netty实现的nio客户端
  *
  * @author xym
- * @create 2019-01-02 11:14
+ * @create 2019-_01-02 11:14
  */
 public class TimeClient {
     public static void main(String[] args) {
