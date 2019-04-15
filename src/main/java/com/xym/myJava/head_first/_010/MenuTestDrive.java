@@ -26,5 +26,7 @@ public class MenuTestDrive {
         Menu dinerMenuV3 = new DinerMenuV3();
         WaitressV3 waitressV3 = new WaitressV3(pancakeHouseMenuV3, dinerMenuV3);
         waitressV3.printMenu();
+
+        System.out.println(Integer.MAX_VALUE);
     }
 }
