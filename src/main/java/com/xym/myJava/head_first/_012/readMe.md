@@ -9,3 +9,5 @@
 - 保护代理基于权限控制对资源的访问
 
 ### JDK动态代理
+
+![JDK动态代理](http://ww1.sinaimg.cn/mw690/6ad5a571ly1g25sfjqutbj20l10c5mye.jpgs)
