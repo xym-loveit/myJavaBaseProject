@@ -1,4 +1,6 @@
 ## 学习Head First设计模式
+模式是在某情景下，针对某问题的某种解决方案。
+
 - [_01策略模式](_01)
 - [_02观察者模式](_02)
 - [_03装饰者模式](_03)
@@ -10,3 +12,13 @@
 - [_09模板方法模式](_09)
 - [_10迭代器模式](_010)
 - [_11状态模式](_011)
+
+## 模式分类：
+
+- 创建型：创建型模式涉及到将对象实例化，这类模式都提供一个方法，将客户从所需要的实例化对象中解耦。
+`Singleton(单例模式)`、`Builder（建造者模式）`、`Prototype（原型模式）`、`Abstract Factory（抽象工厂）`、`Factory Method（工厂方法）`
+- 行为性：行为性模式都涉及到类和对象如何交互及分配职责。
+`Template Method（模板方法）`、`Command（命令模式）`、`Observer（观察者模式）`、`State（状态模式）`、`Strategy（策略模式）`、`Iterator（迭代器模式）`、`Visitor（访问模式）`、`Interpreter（解释器模式）`、
+`Chain of Responsibility（职责链模式）`、`Mediator（中介者模式）`、`Memento（备忘录模式）`
+- 结构性：结构性模式可以让你把类或对象组合到更大的结构中。
+`Proxy（代理模式）`、`Facade（门面模式）`、`Decorator（装饰者模式）`、`Composite（组合模式）`、`Adapter（适配器模式）`、`Bridge（桥梁模式）`、`Flyweight（享元模式）`、
