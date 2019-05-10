@@ -48,17 +48,17 @@
         </dependency>
 
         <!--log4f impl-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
-        </dependency>
+        </dependency>-->
 
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+        <!--  <dependency>
+              <groupId>log4j</groupId>
+              <artifactId>log4j</artifactId>
+              <version>1.2.17</version>
+          </dependency>-->
         <!--jdk impl-->
         <!-- <dependency>
              <groupId>org.slf4j</groupId>
@@ -121,11 +121,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>cn.leancloud</groupId>
             <artifactId>fastjson-leancloud</artifactId>
             <version>1.1.39</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
@@ -150,6 +150,20 @@
             <groupId>org.jboss.marshalling</groupId>
             <artifactId>jboss-marshalling-serial</artifactId>
             <version>2.0.6.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ognl/ognl -->
+        <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+            <version>3.2.10</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.57</version>
         </dependency>
 
         <dependency>
