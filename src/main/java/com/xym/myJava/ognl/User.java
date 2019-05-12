@@ -94,4 +94,18 @@ public class User {
     public void setMaps(Map<String, Group> maps) {
         this.maps = maps;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", age=" + age +
+                ", group=" + group +
+                ", strs=" + Arrays.toString(strs) +
+                ", lists=" + lists +
+                ", groups=" + groups +
+                ", maps=" + maps +
+                '}';
+    }
 }
