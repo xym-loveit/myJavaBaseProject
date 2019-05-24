@@ -3,4 +3,4 @@
 :innocent::innocent:
 
 
-http://localhost:8080/h5/FTH5/register.html?channelCode=yqb
+https://test-laiqiankuai-api.wuhuyinyuan.com/h5/FTH5/register.html?channelCode=yqb
