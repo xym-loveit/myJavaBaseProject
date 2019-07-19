@@ -51,6 +51,6 @@ public class Test2 {
         //thread.interrupt();
         ////System.out.println("normal=" + normal.get());
         //System.out.println("exceptionally=" + exceptionally.get());
-        System.in.read();
+        //System.in.read();
     }
 }
