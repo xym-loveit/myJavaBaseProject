@@ -1,9 +1,17 @@
 package com.xym.myJava.jdk8.date;
 
+
+import java.nio.file.attribute.FileTime;
+import java.sql.Timestamp;
+import java.text.Format;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 描述类作用
@@ -17,6 +25,159 @@ public class Main {
         //testInstant();
         //testDuration();
         //testPeriod();
+        //testTemporalAdjuster();
+        //testDateTimeFormat();
+        //testZoneId();
+        //testZoneId2();
+        //testZoneOffset();
+        //testZoneDate();
+        //legacyDateConvert();
+    }
+
+    /**
+     * java.time类和遗留类之间的转换
+     */
+    private static void legacyDateConvert() {
+        //date和Instant互转，2者等价
+        Date from = Date.from(Instant.now());
+        System.out.println(from);
+        Instant instant = from.toInstant();
+        System.out.println(instant);
+        //GregorianCalendar和ZonedDateTime等价(带时区的日期时间)
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        GregorianCalendar from1 = GregorianCalendar.from(zonedDateTime);
+        System.out.println(from1.getTime());
+        ZonedDateTime zonedDateTime1 = from1.toZonedDateTime();
+        System.out.println(zonedDateTime1);
+        //Timestamp--Instant
+        Timestamp timestamp = new Timestamp(from.getTime());
+        System.out.println(timestamp);
+        Instant instant1 = timestamp.toInstant();
+        System.out.println(instant1);
+        Timestamp from2 = Timestamp.from(Instant.now());
+        System.out.println(from2);
+        //Timestamp-->LocalDateTime
+        LocalDateTime dateTime = timestamp.toLocalDateTime();
+        System.out.println(dateTime);
+        Timestamp valueOf = Timestamp.valueOf(dateTime);
+        System.out.println(valueOf);
+        //LocalDate--java.sql.Date
+        java.sql.Date date = java.sql.Date.valueOf(LocalDate.now());
+        System.out.println(date);
+        LocalDate localDate = date.toLocalDate();
+        System.out.println(localDate);
+        //LocalTime--java.sql.Time
+        java.sql.Time time = java.sql.Time.valueOf(LocalTime.now());
+        LocalTime localTime = time.toLocalTime();
+        //DateTimeFormatter-->java.text.DateFormatter
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String format = dateTimeFormatter.format(LocalDateTime.now());
+        System.out.println(format);
+        Format format1 = dateTimeFormatter.toFormat();
+        //ZoneId---java.util.TimeZone
+        TimeZone timeZone = TimeZone.getTimeZone(ZoneId.systemDefault());
+        System.out.println(timeZone);
+        ZoneId zoneId = timeZone.toZoneId();
+        System.out.println(zoneId);
+        //Instant--java.nio.file.attribute.FileTime
+        FileTime from3 = FileTime.from(instant);
+        System.out.println(from3);
+        Instant instant2 = from3.toInstant();
+        System.out.println(instant2);
+    }
+
+    private static void testZoneDate() {
+        ZonedDateTime now = ZonedDateTime.now();
+        String format = now.format(DateTimeFormatter.ofPattern("O yyyy-MM-dd HH:mm:ss"));
+        System.out.println(format);
+    }
+
+    //英国伦敦格林尼治时间
+    private static void testZoneOffset() {
+        ZoneOffset of = ZoneOffset.of("+00:00");
+        Instant now = Instant.now();
+        System.out.println(now.atZone(of).format(DateTimeFormatter.ofPattern("O yyyy-MM-dd HH:mm:ss")));
+    }
+
+    private static void testZoneId2() {
+        //System.out.println(ZoneId.getAvailableZoneIds());
+        //第二种方式实现按地域分组，且无需定义额外对象
+        Map<String, List<String>> collect = ZoneId.getAvailableZoneIds().stream().
+                filter(s -> s.contains("/")).
+                collect(Collectors.toMap(s -> s.split("/")[0], s -> {
+                    List<String> values = new ArrayList<>();
+                    values.add(s);
+                    return values;
+                }, (v1, v2) -> {
+                    //如果冲突就将第二个产生的list添加进第一个
+                    v1.addAll(v2);
+                    return v1;
+                }));
+
+        System.out.println(collect);
+    }
+
+    private static void testZoneId() {
+        System.out.println(ZoneId.systemDefault());
+        System.out.println(ZoneId.getAvailableZoneIds().stream().collect(Collectors.toList()));
+        //按地域分组
+        Map<String, List<ZoneClazz>> collect = ZoneId.getAvailableZoneIds().stream().filter(s -> s.contains("/")).map(zs -> {
+                    try {
+                        return new ZoneClazz(zs.split("/")[0], zs);
+                    } catch (Exception e) {
+                        System.out.println(zs);
+                        e.printStackTrace();
+                        throw e;
+                    }
+                }
+        ).
+                collect(Collectors.groupingBy(ZoneClazz::getArea));
+        System.out.println(collect);
+    }
+
+    static class ZoneClazz {
+        private String area;
+        private String zone;
+
+        public ZoneClazz(String area, String zone) {
+            this.area = area;
+            this.zone = zone;
+        }
+
+        public String getArea() {
+            return area;
+        }
+
+        public void setArea(String area) {
+            this.area = area;
+        }
+
+        public String getZone() {
+            return zone;
+        }
+
+        public void setZone(String zone) {
+            this.zone = zone;
+        }
+
+        @Override
+        public String toString() {
+            return zone;
+        }
+    }
+
+    private static void testDateTimeFormat() {
+        LocalDate now = LocalDate.now();
+        System.out.println(now.format(DateTimeFormatter.BASIC_ISO_DATE));
+        System.out.println(now.format(DateTimeFormatter.ISO_DATE));
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        System.out.println(dateTimeFormatter.format(now));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM-dd", Locale.ITALIAN);
+        System.out.println(now.format(formatter));
+    }
+
+    //日期时间调节器，比较重要,比较实用
+    private static void testTemporalAdjuster() {
         LocalDate now = LocalDate.now();
         //根据当前时间最近的一个星期四
         LocalDate with = now.with(TemporalAdjusters.nextOrSame(DayOfWeek.THURSDAY));
@@ -48,6 +209,18 @@ public class Main {
         NextWorkingDay nextWorkingDay = new NextWorkingDay();
         //System.out.println(nextWorkingDay.adjustInto(LocalDate.now().plusDays(-2)));
         System.out.println(now.with(nextWorkingDay));
+        //通过lambda表达式实现日期调节器
+        TemporalAdjuster nextWorkingDay4Lambda = TemporalAdjusters.ofDateAdjuster(localDate -> {
+            DayOfWeek of = DayOfWeek.of(localDate.get(ChronoField.DAY_OF_WEEK));
+            int dayToAdd = 1;
+            if (of == DayOfWeek.FRIDAY) {
+                dayToAdd = 3;
+            } else if (of == DayOfWeek.SATURDAY) {
+                dayToAdd = 2;
+            }
+            return localDate.plus(dayToAdd, ChronoUnit.DAYS);
+        });
+        System.out.println(now.with(nextWorkingDay4Lambda));
     }
 
     private static void testPeriod() {
