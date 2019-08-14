@@ -14,6 +14,7 @@ public class InternalClassSingleton {
     private InternalClassSingleton() {
     }
 
+    //jvm保证的该类只有用到时候才会加载并且实例化
     private static class SingletonHolder {
         private static final InternalClassSingleton singleton = new InternalClassSingleton();
     }
@@ -21,5 +22,7 @@ public class InternalClassSingleton {
     public static InternalClassSingleton getInstance() {
         return SingletonHolder.singleton;
     }
+
+
 
 }

@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.text.Format;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
@@ -32,6 +33,109 @@ public class Main {
         //testZoneOffset();
         //testZoneDate();
         //legacyDateConvert();
+        //availableZoneIds();
+        //System.out.println(ZoneId.getAvailableZoneIds());
+        //ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        //System.out.println(ZoneId.systemDefault());
+        //System.out.println(zonedDateTime.withZoneSameInstant(ZoneId.of("Asia/Tokyo")));
+        //long until = Instant.ofEpochSecond(0).until(Instant.now(), ChronoUnit.DAYS);
+        //System.out.println(until);
+        //LocalDate start = LocalDate.of();
+        //System.out.println(start.until(LocalDate.now(), ChronoUnit.DAYS));
+        //getDaysInYear();
+        //mondayAllOfOneMonth(10, DayOfWeek.FRIDAY);
+        //testDay();
+        //getListAllDayInYear();
+
+    }
+
+    /**
+     * 找一年中是13号又是星期5的日期
+     */
+    private static void getListAllDayInYear() {
+        //找一年中是13号又是星期5的日期
+        int y = 2019;
+        LocalDate localDate = Year.of(y).atMonth(1).atDay(1).with(TemporalAdjusters.firstInMonth(DayOfWeek.FRIDAY));
+        int targetY = localDate.getYear();
+        while (targetY == y) {
+            //当前时间是不是13号
+            Boolean query = localDate.query(d -> d.get(ChronoField.DAY_OF_MONTH) == 13);
+            if (query) {
+                System.out.println(localDate);
+            }
+            //下一个星期五
+            localDate = localDate.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
+            targetY = localDate.getYear();
+        }
+    }
+
+    /**
+     * 假设给定5月17号，判断该日期是否是17号并且还是星期五
+     */
+    private static void testDay() {
+        // 假设给定5月17号，判断该日期是否是17号并且还是星期五
+        int m = 5;
+        int d = 17;
+        LocalDate localDate = Year.now().atMonth(m).atDay(d);
+        Boolean query = localDate.query(date -> {
+            int dd = date.get(ChronoField.DAY_OF_MONTH);
+            int ww = date.get(ChronoField.DAY_OF_WEEK);
+            return ww == 5 && dd == 17;
+        });
+        System.out.println(query);
+    }
+
+    /**
+     * 在当年的某个特定月份，列出当月的所有指定星期
+     *
+     * @param month（月份）
+     * @param dayOfWeek（星期几）
+     */
+    private static void mondayAllOfOneMonth(int month, DayOfWeek dayOfWeek) {
+        //在当年的某个特定月份，列出当月的所有星期一
+        //int m = 5;
+        Month of = Month.of(month);
+        LocalDate localDate = Year.now().atMonth(month).atDay(1).
+                //找到该月的第一个星期1并作为起始日期
+                        with(TemporalAdjusters.firstInMonth(dayOfWeek));
+        Month mi = localDate.getMonth();
+        System.out.printf("%s的" + dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault()) + "有以下几天:%n", mi.getDisplayName(TextStyle.FULL, Locale.getDefault()));
+        while (mi == of) {
+            System.out.printf("%s%n", localDate);
+            localDate = localDate.with(TemporalAdjusters.next(dayOfWeek));
+            mi = localDate.getMonth();
+        }
+    }
+
+    private static void getDaysInYear() {
+        int year = 2019;
+        //给定一个年份，打印出该年中每个月有多少天
+        Arrays.stream(Month.values()).map(m -> LocalDate.of(year, m.getValue(), 1)).forEach(d -> {
+            Month month = d.getMonth();
+            String displayNameMonth = month.getDisplayName(TextStyle.FULL, Locale.getDefault());
+            System.out.printf("%35s %10s%n", displayNameMonth, d.lengthOfMonth());
+        });
+    }
+
+    private static void availableZoneIds() {
+        Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
+        List<String> list = new ArrayList<>(availableZoneIds);
+        Collections.sort(list);
+        LocalDateTime dt = LocalDateTime.now();
+        for (String s : list) {
+            // 获取到的字符串可以通过ZoneId.of获取实例
+            ZoneId zone = ZoneId.of(s);
+            // 把本地时间加时区信息 转换成一个ZonedDateTime
+            ZonedDateTime zdt = dt.atZone(zone);
+            // 如果说一个时区是 +3;而北京是+8，那么该时区比北京慢5个小时
+            // 北京时间是12点，那么该时区12-5 = 7
+            ZoneOffset offset = zdt.getOffset();
+            int secondsOfHour = offset.getTotalSeconds() % (60 * 60);
+            String out = String.format("%35s %10s%n", zone, offset);
+            if (secondsOfHour != 0) {
+                System.out.printf(out);
+            }
+        }
     }
 
     /**
@@ -164,6 +268,7 @@ public class Main {
         public String toString() {
             return zone;
         }
+
     }
 
     private static void testDateTimeFormat() {
