@@ -1,4 +1,4 @@
-package com.xym.myJava.jmx;
+package com.xym.myJava.jmx.mbean;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;

@@ -1,4 +1,4 @@
-package com.xym.myJava.jmx;
+package com.xym.myJava.jmx.mxbeans;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;

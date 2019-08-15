@@ -1,4 +1,4 @@
-package com.xym.myJava.jmx;
+package com.xym.myJava.jmx.mbean;
 
 import com.sun.jdmk.comm.HtmlAdaptorServer;
 
