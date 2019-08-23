@@ -50,9 +50,9 @@ public class RSADemo {
             System.out.println("-----------------------------------");
             byte[] decryptByPublicKey = decryptByPublicKey(encryptByPrivateKey, publicKey);
             byte[] decryptByPrivateKey = decryptByPrivateKey(encryptByPublicKey, privateKey);
-            System.out.println(decryptByPublicKey);
+            System.out.println(new String(decryptByPublicKey));
             System.out.println("-----------------------------------");
-            System.out.println(decryptByPrivateKey);
+            System.out.println((new String(decryptByPrivateKey)));
         } catch (Exception e) {
             e.printStackTrace();
         }
