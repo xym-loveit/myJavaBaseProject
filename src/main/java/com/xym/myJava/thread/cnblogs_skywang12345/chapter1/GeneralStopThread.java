@@ -1,4 +1,4 @@
-package com.xym.myJava.thread.cnblogs_skywang12345;
+package com.xym.myJava.thread.cnblogs_skywang12345.chapter1;
 
 /**
  * 这种终止线程的做法很聪明：

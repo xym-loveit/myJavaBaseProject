@@ -1,4 +1,4 @@
-package com.xym.myJava.thread.cnblogs_skywang12345;
+package com.xym.myJava.thread.cnblogs_skywang12345.chapter1;
 
 // Demo.java
 class MyThread6 extends Thread {

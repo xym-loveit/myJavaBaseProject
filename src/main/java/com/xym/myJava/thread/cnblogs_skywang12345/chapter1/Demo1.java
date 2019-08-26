@@ -1,4 +1,4 @@
-package com.xym.myJava.thread.cnblogs_skywang12345;
+package com.xym.myJava.thread.cnblogs_skywang12345.chapter1;
 
 // Demo1.java的源码
 class MyThread4 extends Thread {

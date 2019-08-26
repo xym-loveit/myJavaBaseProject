@@ -1,4 +1,4 @@
-package com.xym.myJava.thread.cnblogs_skywang12345;
+package com.xym.myJava.thread.cnblogs_skywang12345.chapter1;
 
 // 主线程
 public class Father extends Thread {
